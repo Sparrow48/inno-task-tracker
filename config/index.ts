@@ -7,6 +7,7 @@ export default () => {
       SECURITY_JWT_SECRET: Joi.string().required().min(10),
       SECURITY_JWT_TTL: Joi.number().required(),
       MONGO_URI: Joi.string().required(),
+      REDIS_URL: Joi.string().required(),
     })
     .unknown(true);
 
@@ -23,6 +24,9 @@ export default () => {
       bcryptRound: value.SECURITY_BCRYPT_ROUND,
       jwtSecret: value.SECURITY_JWT_SECRET,
       jwtTTL: value.SECURITY_JWT_TTL,
+    },
+    redis: {
+      url: value.REDIS_URL,
     },
   };
 };
